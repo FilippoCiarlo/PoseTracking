@@ -22,15 +22,15 @@ while True:
             print(id,lm)
 
             cx, cy = int(lm.x * w), int(lm.y * h)
-            cv2.circle(img, (cx,cy), 5, (186, 220, 108), cv2.FILLED)
+            cv2.circle(img, (cx,cy), 5, (80, 255, 222), cv2.FILLED)
 
-
+    # calculate FPS
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
 
-    cv2.putText(img, str(int(fps)), (10, 100), cv2.FONT_HERSHEY_PLAIN, 8, (186, 220, 108), 3)
-
+    # visualize output
+    cv2.putText(img, f"FPS:{str(int(fps))}", (10, 40), cv2.FONT_HERSHEY_PLAIN, 2, (80, 255, 222), 2)
     cv2.imshow('PoseEstimation', img)
     cv2.waitKey(1)
 
